@@ -1,0 +1,642 @@
+{
+    "years":  [
+                  {
+                      "year":  2025,
+                      "work":  "Doctrine and Covenants",
+                      "source":  "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-doctrine-and-covenants-2025?lang=eng",
+                      "weeks":  [
+                                    {
+                                        "number":  1,
+                                        "startDate":  "2024-12-30",
+                                        "endDate":  "2025-01-05",
+                                        "reading":  "The Restoration of the Fulness of the Gospel of Jesus Christ"
+                                    },
+                                    {
+                                        "number":  2,
+                                        "startDate":  "2025-01-06",
+                                        "endDate":  "2025-01-12",
+                                        "reading":  "Doctrine and Covenants 1"
+                                    },
+                                    {
+                                        "number":  3,
+                                        "startDate":  "2025-01-13",
+                                        "endDate":  "2025-01-19",
+                                        "reading":  "Joseph Smith—History 1:1–26"
+                                    },
+                                    {
+                                        "number":  4,
+                                        "startDate":  "2025-01-20",
+                                        "endDate":  "2025-01-26",
+                                        "reading":  "Doctrine and Covenants 2; Joseph Smith—History 1:27–65"
+                                    },
+                                    {
+                                        "number":  5,
+                                        "startDate":  "2025-01-27",
+                                        "endDate":  "2025-02-02",
+                                        "reading":  "Doctrine and Covenants 3–5"
+                                    },
+                                    {
+                                        "number":  6,
+                                        "startDate":  "2025-02-03",
+                                        "endDate":  "2025-02-09",
+                                        "reading":  "Doctrine and Covenants 6–9"
+                                    },
+                                    {
+                                        "number":  7,
+                                        "startDate":  "2025-02-10",
+                                        "endDate":  "2025-02-16",
+                                        "reading":  "Doctrine and Covenants 10–11"
+                                    },
+                                    {
+                                        "number":  8,
+                                        "startDate":  "2025-02-17",
+                                        "endDate":  "2025-02-23",
+                                        "reading":  "Doctrine and Covenants 12–17; Joseph Smith—History 1:66–75"
+                                    },
+                                    {
+                                        "number":  9,
+                                        "startDate":  "2025-02-24",
+                                        "endDate":  "2025-03-02",
+                                        "reading":  "Doctrine and Covenants 18"
+                                    },
+                                    {
+                                        "number":  10,
+                                        "startDate":  "2025-03-03",
+                                        "endDate":  "2025-03-09",
+                                        "reading":  "Doctrine and Covenants 19"
+                                    },
+                                    {
+                                        "number":  11,
+                                        "startDate":  "2025-03-10",
+                                        "endDate":  "2025-03-16",
+                                        "reading":  "Doctrine and Covenants 20–22"
+                                    },
+                                    {
+                                        "number":  12,
+                                        "startDate":  "2025-03-17",
+                                        "endDate":  "2025-03-23",
+                                        "reading":  "Doctrine and Covenants 23–26"
+                                    },
+                                    {
+                                        "number":  13,
+                                        "startDate":  "2025-03-24",
+                                        "endDate":  "2025-03-30",
+                                        "reading":  "Doctrine and Covenants 27–28"
+                                    },
+                                    {
+                                        "number":  14,
+                                        "startDate":  "2025-03-31",
+                                        "endDate":  "2025-04-06",
+                                        "reading":  "Doctrine and Covenants 29"
+                                    },
+                                    {
+                                        "number":  15,
+                                        "startDate":  "2025-04-07",
+                                        "endDate":  "2025-04-13",
+                                        "reading":  "Doctrine and Covenants 30–36"
+                                    },
+                                    {
+                                        "number":  16,
+                                        "startDate":  "2025-04-14",
+                                        "endDate":  "2025-04-20",
+                                        "reading":  "Easter"
+                                    },
+                                    {
+                                        "number":  17,
+                                        "startDate":  "2025-04-21",
+                                        "endDate":  "2025-04-27",
+                                        "reading":  "Doctrine and Covenants 37–40"
+                                    },
+                                    {
+                                        "number":  18,
+                                        "startDate":  "2025-04-28",
+                                        "endDate":  "2025-05-04",
+                                        "reading":  "Doctrine and Covenants 41–44"
+                                    },
+                                    {
+                                        "number":  19,
+                                        "startDate":  "2025-05-05",
+                                        "endDate":  "2025-05-11",
+                                        "reading":  "Doctrine and Covenants 45"
+                                    },
+                                    {
+                                        "number":  20,
+                                        "startDate":  "2025-05-12",
+                                        "endDate":  "2025-05-18",
+                                        "reading":  "Doctrine and Covenants 46–48"
+                                    },
+                                    {
+                                        "number":  21,
+                                        "startDate":  "2025-05-19",
+                                        "endDate":  "2025-05-25",
+                                        "reading":  "Doctrine and Covenants 49–50"
+                                    },
+                                    {
+                                        "number":  22,
+                                        "startDate":  "2025-05-26",
+                                        "endDate":  "2025-06-01",
+                                        "reading":  "Doctrine and Covenants 51–57"
+                                    },
+                                    {
+                                        "number":  23,
+                                        "startDate":  "2025-06-02",
+                                        "endDate":  "2025-06-08",
+                                        "reading":  "Doctrine and Covenants 58–59"
+                                    },
+                                    {
+                                        "number":  24,
+                                        "startDate":  "2025-06-09",
+                                        "endDate":  "2025-06-15",
+                                        "reading":  "Doctrine and Covenants 60–63"
+                                    },
+                                    {
+                                        "number":  25,
+                                        "startDate":  "2025-06-16",
+                                        "endDate":  "2025-06-22",
+                                        "reading":  "Doctrine and Covenants 64–66"
+                                    },
+                                    {
+                                        "number":  26,
+                                        "startDate":  "2025-06-23",
+                                        "endDate":  "2025-06-29",
+                                        "reading":  "Doctrine and Covenants 67–70"
+                                    },
+                                    {
+                                        "number":  27,
+                                        "startDate":  "2025-06-30",
+                                        "endDate":  "2025-07-06",
+                                        "reading":  "Doctrine and Covenants 71–75"
+                                    },
+                                    {
+                                        "number":  28,
+                                        "startDate":  "2025-07-07",
+                                        "endDate":  "2025-07-13",
+                                        "reading":  "Doctrine and Covenants 76"
+                                    },
+                                    {
+                                        "number":  29,
+                                        "startDate":  "2025-07-14",
+                                        "endDate":  "2025-07-20",
+                                        "reading":  "Doctrine and Covenants 77–80"
+                                    },
+                                    {
+                                        "number":  30,
+                                        "startDate":  "2025-07-21",
+                                        "endDate":  "2025-07-27",
+                                        "reading":  "Doctrine and Covenants 81–83"
+                                    },
+                                    {
+                                        "number":  31,
+                                        "startDate":  "2025-07-28",
+                                        "endDate":  "2025-08-03",
+                                        "reading":  "Doctrine and Covenants 84"
+                                    },
+                                    {
+                                        "number":  32,
+                                        "startDate":  "2025-08-04",
+                                        "endDate":  "2025-08-10",
+                                        "reading":  "Doctrine and Covenants 85–87"
+                                    },
+                                    {
+                                        "number":  33,
+                                        "startDate":  "2025-08-11",
+                                        "endDate":  "2025-08-17",
+                                        "reading":  "Doctrine and Covenants 88"
+                                    },
+                                    {
+                                        "number":  34,
+                                        "startDate":  "2025-08-18",
+                                        "endDate":  "2025-08-24",
+                                        "reading":  "Doctrine and Covenants 89–92"
+                                    },
+                                    {
+                                        "number":  35,
+                                        "startDate":  "2025-08-25",
+                                        "endDate":  "2025-08-31",
+                                        "reading":  "Doctrine and Covenants 93"
+                                    },
+                                    {
+                                        "number":  36,
+                                        "startDate":  "2025-09-01",
+                                        "endDate":  "2025-09-07",
+                                        "reading":  "Doctrine and Covenants 94–97"
+                                    },
+                                    {
+                                        "number":  37,
+                                        "startDate":  "2025-09-08",
+                                        "endDate":  "2025-09-14",
+                                        "reading":  "Doctrine and Covenants 98–101"
+                                    },
+                                    {
+                                        "number":  38,
+                                        "startDate":  "2025-09-15",
+                                        "endDate":  "2025-09-21",
+                                        "reading":  "Doctrine and Covenants 102–105"
+                                    },
+                                    {
+                                        "number":  39,
+                                        "startDate":  "2025-09-22",
+                                        "endDate":  "2025-09-28",
+                                        "reading":  "Doctrine and Covenants 106–108"
+                                    },
+                                    {
+                                        "number":  40,
+                                        "startDate":  "2025-09-29",
+                                        "endDate":  "2025-10-05",
+                                        "reading":  "Doctrine and Covenants 109–110"
+                                    },
+                                    {
+                                        "number":  41,
+                                        "startDate":  "2025-10-06",
+                                        "endDate":  "2025-10-12",
+                                        "reading":  "Doctrine and Covenants 111–114"
+                                    },
+                                    {
+                                        "number":  42,
+                                        "startDate":  "2025-10-13",
+                                        "endDate":  "2025-10-19",
+                                        "reading":  "Doctrine and Covenants 115–120"
+                                    },
+                                    {
+                                        "number":  43,
+                                        "startDate":  "2025-10-20",
+                                        "endDate":  "2025-10-26",
+                                        "reading":  "Doctrine and Covenants 121–123"
+                                    },
+                                    {
+                                        "number":  44,
+                                        "startDate":  "2025-10-27",
+                                        "endDate":  "2025-11-02",
+                                        "reading":  "Doctrine and Covenants 124"
+                                    },
+                                    {
+                                        "number":  45,
+                                        "startDate":  "2025-11-03",
+                                        "endDate":  "2025-11-09",
+                                        "reading":  "Doctrine and Covenants 125–128"
+                                    },
+                                    {
+                                        "number":  46,
+                                        "startDate":  "2025-11-10",
+                                        "endDate":  "2025-11-16",
+                                        "reading":  "Doctrine and Covenants 129–132"
+                                    },
+                                    {
+                                        "number":  47,
+                                        "startDate":  "2025-11-17",
+                                        "endDate":  "2025-11-23",
+                                        "reading":  "Doctrine and Covenants 133–134"
+                                    },
+                                    {
+                                        "number":  48,
+                                        "startDate":  "2025-11-24",
+                                        "endDate":  "2025-11-30",
+                                        "reading":  "Doctrine and Covenants 135–136"
+                                    },
+                                    {
+                                        "number":  49,
+                                        "startDate":  "2025-12-01",
+                                        "endDate":  "2025-12-07",
+                                        "reading":  "Doctrine and Covenants 137–138"
+                                    },
+                                    {
+                                        "number":  50,
+                                        "startDate":  "2025-12-08",
+                                        "endDate":  "2025-12-14",
+                                        "reading":  "The Articles of Faith and Official Declarations 1 and 2"
+                                    },
+                                    {
+                                        "number":  51,
+                                        "startDate":  "2025-12-15",
+                                        "endDate":  "2025-12-21",
+                                        "reading":  "The Family: A Proclamation to the World"
+                                    },
+                                    {
+                                        "number":  52,
+                                        "startDate":  "2025-12-22",
+                                        "endDate":  "2025-12-28",
+                                        "reading":  "Christmas"
+                                    }
+                                ]
+                  },
+                  {
+                      "year":  2026,
+                      "work":  "Old Testament",
+                      "source":  "https://www.churchofjesuschrist.org/study/manual/come-follow-me-for-home-and-church-old-testament-2026?lang=eng",
+                      "weeks":  [
+                                    {
+                                        "number":  1,
+                                        "startDate":  "2025-12-29",
+                                        "endDate":  "2026-01-04",
+                                        "reading":  "Introduction to the Old Testament"
+                                    },
+                                    {
+                                        "number":  2,
+                                        "startDate":  "2026-01-05",
+                                        "endDate":  "2026-01-11",
+                                        "reading":  "Moses 1; Abraham 3"
+                                    },
+                                    {
+                                        "number":  3,
+                                        "startDate":  "2026-01-12",
+                                        "endDate":  "2026-01-18",
+                                        "reading":  "Genesis 1–2; Moses 2–3; Abraham 4–5"
+                                    },
+                                    {
+                                        "number":  4,
+                                        "startDate":  "2026-01-19",
+                                        "endDate":  "2026-01-25",
+                                        "reading":  "Genesis 3–4; Moses 4–5"
+                                    },
+                                    {
+                                        "number":  5,
+                                        "startDate":  "2026-01-26",
+                                        "endDate":  "2026-02-01",
+                                        "reading":  "Genesis 5; Moses 6"
+                                    },
+                                    {
+                                        "number":  6,
+                                        "startDate":  "2026-02-02",
+                                        "endDate":  "2026-02-08",
+                                        "reading":  "Moses 7"
+                                    },
+                                    {
+                                        "number":  7,
+                                        "startDate":  "2026-02-09",
+                                        "endDate":  "2026-02-15",
+                                        "reading":  "Genesis 6–11; Moses 8"
+                                    },
+                                    {
+                                        "number":  8,
+                                        "startDate":  "2026-02-16",
+                                        "endDate":  "2026-02-22",
+                                        "reading":  "Genesis 12–17; Abraham 1–2"
+                                    },
+                                    {
+                                        "number":  9,
+                                        "startDate":  "2026-02-23",
+                                        "endDate":  "2026-03-01",
+                                        "reading":  "Genesis 18–23"
+                                    },
+                                    {
+                                        "number":  10,
+                                        "startDate":  "2026-03-02",
+                                        "endDate":  "2026-03-08",
+                                        "reading":  "Genesis 24–33"
+                                    },
+                                    {
+                                        "number":  11,
+                                        "startDate":  "2026-03-09",
+                                        "endDate":  "2026-03-15",
+                                        "reading":  "Genesis 37–41"
+                                    },
+                                    {
+                                        "number":  12,
+                                        "startDate":  "2026-03-16",
+                                        "endDate":  "2026-03-22",
+                                        "reading":  "Genesis 42–50"
+                                    },
+                                    {
+                                        "number":  13,
+                                        "startDate":  "2026-03-23",
+                                        "endDate":  "2026-03-29",
+                                        "reading":  "Exodus 1–6"
+                                    },
+                                    {
+                                        "number":  14,
+                                        "startDate":  "2026-03-30",
+                                        "endDate":  "2026-04-05",
+                                        "reading":  "Easter"
+                                    },
+                                    {
+                                        "number":  15,
+                                        "startDate":  "2026-04-06",
+                                        "endDate":  "2026-04-12",
+                                        "reading":  "Exodus 7–13"
+                                    },
+                                    {
+                                        "number":  16,
+                                        "startDate":  "2026-04-13",
+                                        "endDate":  "2026-04-19",
+                                        "reading":  "Exodus 14–18"
+                                    },
+                                    {
+                                        "number":  17,
+                                        "startDate":  "2026-04-20",
+                                        "endDate":  "2026-04-26",
+                                        "reading":  "Exodus 19–20; 24; 31–34"
+                                    },
+                                    {
+                                        "number":  18,
+                                        "startDate":  "2026-04-27",
+                                        "endDate":  "2026-05-03",
+                                        "reading":  "Exodus 35–40; Leviticus 1; 4; 16; 19"
+                                    },
+                                    {
+                                        "number":  19,
+                                        "startDate":  "2026-05-04",
+                                        "endDate":  "2026-05-10",
+                                        "reading":  "Numbers 11–14; 20–24; 27"
+                                    },
+                                    {
+                                        "number":  20,
+                                        "startDate":  "2026-05-11",
+                                        "endDate":  "2026-05-17",
+                                        "reading":  "Deuteronomy 6–8; 15; 18; 29–30; 34"
+                                    },
+                                    {
+                                        "number":  21,
+                                        "startDate":  "2026-05-18",
+                                        "endDate":  "2026-05-24",
+                                        "reading":  "Joshua 1–8; 23–24"
+                                    },
+                                    {
+                                        "number":  22,
+                                        "startDate":  "2026-05-25",
+                                        "endDate":  "2026-05-31",
+                                        "reading":  "Judges 2–4; 6–8; 13–16"
+                                    },
+                                    {
+                                        "number":  23,
+                                        "startDate":  "2026-06-01",
+                                        "endDate":  "2026-06-07",
+                                        "reading":  "Ruth; 1 Samuel 1–7"
+                                    },
+                                    {
+                                        "number":  24,
+                                        "startDate":  "2026-06-08",
+                                        "endDate":  "2026-06-14",
+                                        "reading":  "1 Samuel 8–10; 13; 15–16"
+                                    },
+                                    {
+                                        "number":  25,
+                                        "startDate":  "2026-06-15",
+                                        "endDate":  "2026-06-21",
+                                        "reading":  "1 Samuel 17–18; 24–26; 2 Samuel 5–7"
+                                    },
+                                    {
+                                        "number":  26,
+                                        "startDate":  "2026-06-22",
+                                        "endDate":  "2026-06-28",
+                                        "reading":  "2 Samuel 11–12; 1 Kings 3; 6–9; 11"
+                                    },
+                                    {
+                                        "number":  27,
+                                        "startDate":  "2026-06-29",
+                                        "endDate":  "2026-07-05",
+                                        "reading":  "1 Kings 12–13; 17–22"
+                                    },
+                                    {
+                                        "number":  28,
+                                        "startDate":  "2026-07-06",
+                                        "endDate":  "2026-07-12",
+                                        "reading":  "2 Kings 2–7"
+                                    },
+                                    {
+                                        "number":  29,
+                                        "startDate":  "2026-07-13",
+                                        "endDate":  "2026-07-19",
+                                        "reading":  "2 Kings 16–25"
+                                    },
+                                    {
+                                        "number":  30,
+                                        "startDate":  "2026-07-20",
+                                        "endDate":  "2026-07-26",
+                                        "reading":  "2 Chronicles 14–20; 26; 30"
+                                    },
+                                    {
+                                        "number":  31,
+                                        "startDate":  "2026-07-27",
+                                        "endDate":  "2026-08-02",
+                                        "reading":  "Ezra 1; 3–7; Nehemiah 2; 4–6; 8"
+                                    },
+                                    {
+                                        "number":  32,
+                                        "startDate":  "2026-08-03",
+                                        "endDate":  "2026-08-09",
+                                        "reading":  "Esther"
+                                    },
+                                    {
+                                        "number":  33,
+                                        "startDate":  "2026-08-10",
+                                        "endDate":  "2026-08-16",
+                                        "reading":  "Job 1–3; 12–14; 19; 21–24; 38–40; 42"
+                                    },
+                                    {
+                                        "number":  34,
+                                        "startDate":  "2026-08-17",
+                                        "endDate":  "2026-08-23",
+                                        "reading":  "Psalms 1–2; 8; 19–33; 40; 46"
+                                    },
+                                    {
+                                        "number":  35,
+                                        "startDate":  "2026-08-24",
+                                        "endDate":  "2026-08-30",
+                                        "reading":  "Psalms 49–51; 61–66; 69–72; 77–78; 85–86"
+                                    },
+                                    {
+                                        "number":  36,
+                                        "startDate":  "2026-08-31",
+                                        "endDate":  "2026-09-06",
+                                        "reading":  "Psalms 102–3; 110; 116–19; 127–28; 135–39; 146–50"
+                                    },
+                                    {
+                                        "number":  37,
+                                        "startDate":  "2026-09-07",
+                                        "endDate":  "2026-09-13",
+                                        "reading":  "Proverbs 1–4; 15–16; 22; 31; Ecclesiastes 1–3; 11–12"
+                                    },
+                                    {
+                                        "number":  38,
+                                        "startDate":  "2026-09-14",
+                                        "endDate":  "2026-09-20",
+                                        "reading":  "Isaiah 1–12"
+                                    },
+                                    {
+                                        "number":  39,
+                                        "startDate":  "2026-09-21",
+                                        "endDate":  "2026-09-27",
+                                        "reading":  "Isaiah 13–14; 22; 24–30; 35"
+                                    },
+                                    {
+                                        "number":  40,
+                                        "startDate":  "2026-09-28",
+                                        "endDate":  "2026-10-04",
+                                        "reading":  "Isaiah 40–49"
+                                    },
+                                    {
+                                        "number":  41,
+                                        "startDate":  "2026-10-05",
+                                        "endDate":  "2026-10-11",
+                                        "reading":  "Isaiah 50–57"
+                                    },
+                                    {
+                                        "number":  42,
+                                        "startDate":  "2026-10-12",
+                                        "endDate":  "2026-10-18",
+                                        "reading":  "Isaiah 58–66"
+                                    },
+                                    {
+                                        "number":  43,
+                                        "startDate":  "2026-10-19",
+                                        "endDate":  "2026-10-25",
+                                        "reading":  "Jeremiah 1–3; 7; 16–18; 20"
+                                    },
+                                    {
+                                        "number":  44,
+                                        "startDate":  "2026-10-26",
+                                        "endDate":  "2026-11-01",
+                                        "reading":  "Jeremiah 31–33; 36–39; Lamentations 1; 3"
+                                    },
+                                    {
+                                        "number":  45,
+                                        "startDate":  "2026-11-02",
+                                        "endDate":  "2026-11-08",
+                                        "reading":  "Ezekiel 1–3; 33–34; 36–37; 47"
+                                    },
+                                    {
+                                        "number":  46,
+                                        "startDate":  "2026-11-09",
+                                        "endDate":  "2026-11-15",
+                                        "reading":  "Daniel 1–7"
+                                    },
+                                    {
+                                        "number":  47,
+                                        "startDate":  "2026-11-16",
+                                        "endDate":  "2026-11-22",
+                                        "reading":  "Hosea 1–6; 10–14; Joel"
+                                    },
+                                    {
+                                        "number":  48,
+                                        "startDate":  "2026-11-23",
+                                        "endDate":  "2026-11-29",
+                                        "reading":  "Amos; Obadiah; Jonah"
+                                    },
+                                    {
+                                        "number":  49,
+                                        "startDate":  "2026-11-30",
+                                        "endDate":  "2026-12-06",
+                                        "reading":  "Micah; Nahum; Habakkuk; Zephaniah"
+                                    },
+                                    {
+                                        "number":  50,
+                                        "startDate":  "2026-12-07",
+                                        "endDate":  "2026-12-13",
+                                        "reading":  "Haggai 1–2; Zechariah 1–4; 7–14"
+                                    },
+                                    {
+                                        "number":  51,
+                                        "startDate":  "2026-12-14",
+                                        "endDate":  "2026-12-20",
+                                        "reading":  "Malachi"
+                                    },
+                                    {
+                                        "number":  52,
+                                        "startDate":  "2026-12-21",
+                                        "endDate":  "2026-12-27",
+                                        "reading":  "Christmas"
+                                    }
+                                ]
+                  }
+              ]
+}

@@ -72,7 +72,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px
 .week-switcher-copy span { color: #d4dccc; font-size: 8px; font-weight: 700; letter-spacing: .12em; }
 .week-switcher-copy i { color: #d5ab8e; font-style: normal; }
 .week-switcher-copy strong { font: 12px 'Playfair Display', serif; color: #fffdf6; }
-.home-grid { display: grid; grid-template-columns: 1.16fr .84fr; gap: 15px; margin-top: 17px; }
+.home-grid { display: grid; grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr); gap: 15px; margin-top: 17px; }
+.home-grid > .panel { min-width: 0; }
 .panel { background: var(--white); border: 1px solid #eeebe3; border-radius: 3px 17px 3px 17px; }
 .today-panel, .progress-panel { padding: 23px 23px 21px; }
 .panel-heading { display: flex; justify-content: space-between; align-items: flex-start; }
@@ -246,7 +247,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px
   .layout { grid-template-columns: 185px minmax(0, 1fr); }
   .sidebar { padding-left: 19px; padding-right: 16px; }
   .main-content { padding-left: 25px; padding-right: 25px; }
-  .home-grid { grid-template-columns: 1fr; }
+  .home-grid { grid-template-columns: minmax(0, 1fr); }
   .today-panel, .progress-panel { padding: 21px; }
   .progress-panel { min-height: 255px; }
 }

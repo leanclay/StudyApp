@@ -1,13 +1,7 @@
 import { type FormEvent, useMemo, useState } from 'react'
+import { curriculumWeeks, getCurrentWeekIndex, getTodayLabels, getWeekReferenceSuggestions, type ReadingWeek } from './data/curriculum'
 
 type Screen = 'home' | 'journal' | 'shared' | 'history'
-type ReadingWeek = {
-  id: number
-  title: string
-  dates: string
-  readings: string[]
-  theme: string
-}
 type Thought = {
   id: number
   author: 'You' | 'Jordan'
@@ -16,18 +10,12 @@ type Thought = {
   day: string
 }
 
-const weeks: ReadingWeek[] = [
-  { id: 44, title: 'A Place to Begin Again', dates: 'Oct 26 – Nov 1', readings: ['Psalms 32–33', 'Psalms 34–35', 'Psalms 36–37'], theme: 'Room for a softer start' },
-  { id: 45, title: 'Held Through Every Season', dates: 'Nov 2 – 8', readings: ['Psalms 38–40', 'Psalms 41–43', 'Psalms 44–46'], theme: 'A steady presence beside us' },
-  { id: 46, title: 'A Steady Kind of Trust', dates: 'Nov 9 – 15', readings: ['Psalms 47–49', 'Psalms 50–52', 'Psalms 53–55'], theme: 'Learning to lean into grace' },
-  { id: 47, title: 'Learning to Listen', dates: 'Nov 16 – 22', readings: ['Psalms 56–58', 'Psalms 59–61', 'Psalms 62–64'], theme: 'Finding quiet in the noise' },
-  { id: 48, title: 'Songs for the In-Between', dates: 'Nov 23 – 29', readings: ['Psalms 65–67', 'Psalms 68–69', 'Psalms 70–72'], theme: 'Hope for what comes next' },
-]
+const weeks = curriculumWeeks
 const initialThoughts: Thought[] = [
-  { id: 4, author: 'Jordan', text: 'Today I’m trying to trust that I don’t have to have the whole path figured out. One next step is enough.', refs: ['Psalm 55:22'], day: 'Today' },
-  { id: 1, author: 'Jordan', text: 'I keep coming back to the idea that rest is something we’re invited into, not something we have to earn. I needed that reminder today.', refs: ['Psalm 23:1–3'], day: 'Yesterday' },
-  { id: 2, author: 'You', text: '“He leads me beside still waters.” A quiet nudge to slow down and notice where I’m already being led.', refs: ['Psalm 23:2', 'Psalm 46:10'], day: 'Yesterday' },
-  { id: 3, author: 'Jordan', text: 'This verse feels different after a long week. Maybe being restored starts with letting myself be cared for.', refs: ['Psalm 23:3'], day: 'November 12' },
+  { id: 4, author: 'Jordan', text: 'Today I’m trying to trust that I don’t have to have the whole path figured out. One next step is enough.', refs: ['Daniel 6:10'], day: 'Today' },
+  { id: 1, author: 'Jordan', text: 'I keep coming back to the idea that courage can be quiet and still be real. I needed that reminder today.', refs: ['Daniel 1:8'], day: 'Yesterday' },
+  { id: 2, author: 'You', text: 'A quiet nudge to slow down and notice where I’m already being led.', refs: ['Daniel 2:20–21'], day: 'Yesterday' },
+  { id: 3, author: 'Jordan', text: 'This story feels different after a long week. Maybe being restored starts with letting myself be cared for.', refs: ['Daniel 3:17–18'], day: 'November 12' },
 ]
 const navItems: { id: Screen; label: string; icon: string }[] = [
   { id: 'home', label: 'Home', icon: '⌂' },
@@ -36,27 +24,38 @@ const navItems: { id: Screen; label: string; icon: string }[] = [
   { id: 'history', label: 'History', icon: '◷' },
 ]
 
+function getInitialWeeklyCompletions(currentIndex: number) {
+  const completions: Record<string, { you: boolean; partner: boolean }> = {}
+  for (const week of weeks.slice(Math.max(0, currentIndex - 3), currentIndex)) {
+    completions[week.id] = { you: true, partner: true }
+  }
+  completions[weeks[currentIndex].id] = { you: false, partner: true }
+  return completions
+}
+
 function App() {
   const [screen, setScreen] = useState<Screen>('home')
-  const [weekIndex, setWeekIndex] = useState(2)
+  const currentWeekIndex = getCurrentWeekIndex()
+  const currentWeekId = weeks[currentWeekIndex].id
+  const [weekIndex, setWeekIndex] = useState(currentWeekIndex)
   const [thoughts, setThoughts] = useState(initialThoughts)
   const [entryText, setEntryText] = useState('')
   const [referenceInput, setReferenceInput] = useState('')
   const [references, setReferences] = useState<string[]>([])
   const [notice, setNotice] = useState('')
   const [selectedDay, setSelectedDay] = useState<'Today' | 'Yesterday' | 'This week'>('Today')
-  const [weeklyCompletions, setWeeklyCompletions] = useState<Record<number, { you: boolean; partner: boolean }>>({
-    44: { you: true, partner: true },
-    45: { you: true, partner: true },
-    46: { you: false, partner: true },
-    47: { you: false, partner: false },
-    48: { you: false, partner: false },
+  const [weeklyCompletions, setWeeklyCompletions] = useState(getInitialWeeklyCompletions(currentWeekIndex))
+  const [weeklyUnlocks, setWeeklyUnlocks] = useState<Record<string, boolean>>(() => {
+    const unlocks: Record<string, boolean> = {}
+    for (const week of weeks.slice(Math.max(0, currentWeekIndex - 3), currentWeekIndex)) {
+      unlocks[week.id] = true
+    }
+    return unlocks
   })
-  const [weeklyUnlocks, setWeeklyUnlocks] = useState<Record<number, boolean>>({ 44: true, 45: true })
 
   const week = weeks[weekIndex]
-  const isCurrentWeek = weekIndex === 2
-  const weekCompletion = weeklyCompletions[week.id]
+  const isCurrentWeek = week.id === currentWeekId
+  const weekCompletion = weeklyCompletions[week.id] ?? { you: false, partner: false }
   const yourWeekComplete = weekCompletion.you
   const partnerWeekComplete = weekCompletion.partner
   const weeklyUnlocked = Boolean(weeklyUnlocks[week.id])
@@ -73,6 +72,7 @@ function App() {
     shared: 'A thought to share.',
     history: 'Look how far you’ve come.',
   }[screen]), [screen])
+  const todayLabels = getTodayLabels()
 
   function changeWeek(direction: number) {
     setWeekIndex((index) => Math.min(weeks.length - 1, Math.max(0, index + direction)))
@@ -81,7 +81,10 @@ function App() {
 
   function toggleWeeklyCompletion() {
     const next = !yourWeekComplete
-    setWeeklyCompletions((current) => ({ ...current, [week.id]: { ...current[week.id], you: next } }))
+    setWeeklyCompletions((current) => ({
+      ...current,
+      [week.id]: { ...(current[week.id] ?? { you: false, partner: false }), you: next },
+    }))
     if (next && partnerWeekComplete) setWeeklyUnlocks((current) => ({ ...current, [week.id]: true }))
   }
 
@@ -140,7 +143,7 @@ function App() {
 
         <main className="main-content">
           <div className="mobile-greeting">
-            <span className="eyebrow">{screen === 'home' ? 'SATURDAY, NOVEMBER 14' : 'YOUR SHARED PRACTICE'}</span>
+            <span className="eyebrow">{screen === 'home' ? todayLabels.long.toUpperCase() : 'YOUR SHARED PRACTICE'}</span>
             <h1>{pageTitle}</h1>
           </div>
           {notice && <div className="notice" role="status"><span>✳</span>{notice}<button onClick={() => setNotice('')} aria-label="Dismiss">×</button></div>}
@@ -184,7 +187,7 @@ function App() {
             onJournal={openJournal}
             onHistory={() => setScreen('history')}
           />}
-          {screen === 'history' && <History thoughts={thoughts} weeklyCompletions={weeklyCompletions} onOpenWeek={(index) => { setWeekIndex(index); setScreen('home') }} />}
+          {screen === 'history' && <History thoughts={thoughts} weeks={weeks} currentWeekIndex={currentWeekIndex} weeklyCompletions={weeklyCompletions} onOpenWeek={(index) => { setWeekIndex(index); setScreen('home') }} />}
         </main>
       </div>
 
@@ -206,7 +209,7 @@ function Navigation({ screen, setScreen }: { screen: Screen; setScreen: (screen:
 function WeekSwitcher({ week, weekIndex, onChangeWeek }: { week: ReadingWeek; weekIndex: number; onChangeWeek: (direction: number) => void }) {
   return <div className="week-switcher">
     <button className="round-control" onClick={() => onChangeWeek(-1)} disabled={weekIndex === 0} aria-label="Previous week">←</button>
-    <div className="week-switcher-copy"><span>SAMPLE PLAN <i>·</i> WEEK {week.id}</span><strong>{week.dates}</strong></div>
+    <div className="week-switcher-copy"><span>COME, FOLLOW ME {week.year} <i>·</i> WEEK {week.number}</span><strong>{week.dates}</strong></div>
     <button className="round-control" onClick={() => onChangeWeek(1)} disabled={weekIndex === weeks.length - 1} aria-label="Next week">→</button>
   </div>
 }
@@ -216,20 +219,20 @@ function Home(props: {
   yourDone: boolean; partnerDone: boolean; yourWeekComplete: boolean; partnerWeekComplete: boolean; onToggleWeeklyCompletion: () => void; weeklyUnlocked: boolean; unlocked: boolean; thoughts: Thought[]; onHistory: () => void
 }) {
   const { week, weekIndex, onChangeWeek, onJournal, onShared, yourDone, partnerDone, yourWeekComplete, partnerWeekComplete, onToggleWeeklyCompletion, weeklyUnlocked, unlocked, thoughts, onHistory } = props
+  const todayLabels = getTodayLabels()
   const ownReflection = thoughts.find((thought) => thought.author === 'You' && thought.day === 'Today')
   return <div className="page-content">
     <section className="week-hero">
       <div className="hero-texture" />
       <div className="hero-top"><span className="hero-kicker">YOUR WEEKLY READING</span><span className="hero-flower">✳</span></div>
       <h2>{week.title}</h2>
-      <p className="hero-theme">{week.theme} <span>—</span> together.</p>
-      <div className="readings-row">{week.readings.map((reading, index) => <span className="reading-pill" key={reading}><span>{index + 1}</span>{reading}</span>)}</div>
+      <p className="hero-theme">A shared reading, one week at a time.</p>
       <WeekSwitcher week={week} weekIndex={weekIndex} onChangeWeek={onChangeWeek} />
     </section>
 
     <div className="home-grid">
       <section className="panel today-panel">
-        <div className="panel-heading"><div><span className="eyebrow">YOUR DAILY MOMENT</span><h3>Today, in a few words</h3></div><span className="date-stamp">NOV 14</span></div>
+        <div className="panel-heading"><div><span className="eyebrow">YOUR DAILY MOMENT</span><h3>Today, in a few words</h3></div><span className="date-stamp">{todayLabels.short.toUpperCase()}</span></div>
         <div className="daily-status">
           <PersonStatus name="You" subtitle={yourDone ? 'You showed up today' : 'Your reflection is waiting'} done={yourDone} />
           <div className="status-divider"><span>+</span></div>
@@ -287,16 +290,17 @@ function Journal(props: {
   references: string[]; setReferences: (values: string[]) => void;   onAddReference: () => void; onSave: (event: FormEvent<HTMLFormElement>) => void; onCancel: () => void
 }) {
   const { week, entryText, setEntryText, referenceInput, setReferenceInput, references, setReferences, onAddReference, onSave, onCancel } = props
+  const referenceSuggestions = getWeekReferenceSuggestions(week)
   return <div className="page-content subpage">
-    <div className="subpage-intro"><span className="eyebrow">SATURDAY, NOVEMBER 14 <i>·</i> WEEK {week.id}</span><h2>Make room for a thought.</h2><p>No perfect words needed. Just begin where you are.</p></div>
+    <div className="subpage-intro"><span className="eyebrow">{getTodayLabels().long.toUpperCase()} <i>·</i> WEEK {week.number}</span><h2>Make room for a thought.</h2><p>No perfect words needed. Just begin where you are.</p></div>
     <form className="journal-form panel" onSubmit={onSave}>
       <label className="field-label" htmlFor="reflection">What’s staying with you?</label>
       <textarea id="reflection" value={entryText} onChange={(event) => setEntryText(event.target.value)} placeholder="A verse, a question, a feeling, a moment…" rows={6} maxLength={1000} autoFocus />
       <div className="form-meta"><span>Your words are just for you until you both share today.</span><span>{entryText.length} / 1,000</span></div>
       <div className="reference-field">
         <label className="field-label" htmlFor="reference">Scripture references <span>OPTIONAL</span></label>
-        <div className="reference-input-row"><span className="reference-icon">⌕</span><input id="reference" value={referenceInput} onChange={(event) => setReferenceInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault(); onAddReference() } }} placeholder="Add a verse, e.g. Psalm 23:1" /><button type="button" className="add-reference" onClick={onAddReference} disabled={!referenceInput.trim()}>Add</button></div>
-        <div className="reference-suggestions">{['Psalm 23:1–3', 'Psalm 46:10', 'Matthew 11:28'].filter((ref) => !references.includes(ref)).map((ref) => <button type="button" key={ref} onClick={() => setReferences([...references, ref])}>+ {ref}</button>)}</div>
+        <div className="reference-input-row"><span className="reference-icon">⌕</span><input id="reference" value={referenceInput} onChange={(event) => setReferenceInput(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter') { event.preventDefault(); onAddReference() } }} placeholder="Add a scripture reference" /><button type="button" className="add-reference" onClick={onAddReference} disabled={!referenceInput.trim()}>Add</button></div>
+        {referenceSuggestions.length > 0 && <div className="reference-suggestions">{referenceSuggestions.filter((ref) => !references.includes(ref)).map((ref) => <button type="button" key={ref} onClick={() => setReferences([...references, ref])}>+ {ref}</button>)}</div>}
         {references.length > 0 && <div className="reference-chips">{references.map((ref) => <span className="reference-chip" key={ref}>{ref}<button type="button" onClick={() => setReferences(references.filter((item) => item !== ref))} aria-label={`Remove ${ref}`}>×</button></span>)}</div>}
       </div>
       <div className="journal-footer"><button type="button" className="text-button" onClick={onCancel}>Cancel</button><button type="submit" className="button-primary" disabled={entryText.length > 1000}>Save reflection <span>→</span></button></div>
@@ -314,7 +318,7 @@ function Shared(props: {
   const secondStatus = isWeeklyView ? partnerWeekComplete : partnerDone
   const gateName = isWeeklyView ? 'weekly reading' : 'a thought today'
   return <div className="page-content subpage">
-    <div className="subpage-intro"><span className="eyebrow">A SHARED SPACE <i>·</i> NOVEMBER 14</span><h2>Thoughts, held together.</h2><p>One small window into each other’s inner world.</p></div>
+    <div className="subpage-intro"><span className="eyebrow">A SHARED SPACE <i>·</i> {getTodayLabels().long.toUpperCase()}</span><h2>Thoughts, held together.</h2><p>One small window into each other’s inner world.</p></div>
     <div className="day-tabs" aria-label="Choose a day or week">
       {(['Today', 'Yesterday', 'This week'] as const).map((period) => <button key={period} aria-pressed={selectedDay === period} className={selectedDay === period ? 'selected' : ''} onClick={() => setSelectedDay(period)}>{period}<span>{period === 'Yesterday' || (selectedDay === period && unlocked) ? 'OPEN' : '⌑'}</span></button>)}
     </div>
@@ -335,19 +339,19 @@ function Shared(props: {
   </div>
 }
 
-function History({ thoughts, weeklyCompletions, onOpenWeek }: { thoughts: Thought[]; weeklyCompletions: Record<number, { you: boolean; partner: boolean }>; onOpenWeek: (index: number) => void }) {
+function History({ thoughts, weeks: historyWeeks, currentWeekIndex, weeklyCompletions, onOpenWeek }: { thoughts: Thought[]; weeks: ReadingWeek[]; currentWeekIndex: number; weeklyCompletions: Record<string, { you: boolean; partner: boolean }>; onOpenWeek: (index: number) => void }) {
   const entries = thoughts.length
   return <div className="page-content subpage">
     <div className="subpage-intro"><span className="eyebrow">YOUR STORY SO FAR</span><h2>Look how far you’ve come.</h2><p>Each little moment adds up to something meaningful.</p></div>
     <section className="history-summary panel"><div className="history-summary-icon">✳</div><div><span className="eyebrow">A PRACTICE IN PROGRESS</span><h3>Growing side by side</h3><p>{entries} reflections in your journals. Every one counts.</p></div><div className="history-total"><strong>{entries}</strong><span>thoughts</span></div></section>
-    <div className="history-section-heading"><div><span className="eyebrow">COME, FOLLOW ME</span><h3>Your weeks together</h3></div><span className="history-years">2026</span></div>
-    <div className="history-list">{weeks.slice().reverse().map((week, reverseIndex) => {
-      const index = weeks.length - 1 - reverseIndex
-      const completion = weeklyCompletions[week.id]
-      return <button className={`history-week ${index === 2 ? 'current-history' : ''}`} key={week.id} onClick={() => onOpenWeek(index)}>
-        <div className="history-week-date"><span>{week.dates.split(' – ')[0]}</span><i>{week.dates.split(' – ')[1]}</i></div>
-        <div className="history-week-copy"><span className="history-week-kicker">WEEK {week.id} {index === 2 && <b>THIS WEEK</b>}</span><strong>{week.title}</strong><span>{week.readings.join(' · ')}</span></div>
-        <div className="history-week-counts"><div aria-label={`You ${completion.you ? 'complete' : 'not complete'}, Jordan ${completion.partner ? 'complete' : 'not complete'}`}><span className="mini-dot you-dot" />Y {completion.you ? '✓' : '·'} <span className="mini-dot jordan-dot" />J {completion.partner ? '✓' : '·'}</div><span>{index < 2 ? 'PAST WEEK' : index === 2 ? 'THIS WEEK' : 'UP NEXT'}</span></div>
+    <div className="history-section-heading"><div><span className="eyebrow">COME, FOLLOW ME</span><h3>Your weeks together</h3></div><span className="history-years">2025–2026</span></div>
+    <div className="history-list">{historyWeeks.slice().reverse().map((week) => {
+      const index = historyWeeks.findIndex((item) => item.id === week.id)
+      const completion = weeklyCompletions[week.id] ?? { you: false, partner: false }
+      return <button className={`history-week ${index === currentWeekIndex ? 'current-history' : ''}`} key={week.id} onClick={() => onOpenWeek(index)}>
+        <div className="history-week-date"><span>{week.startLabel}</span><i>{week.endLabel}</i></div>
+        <div className="history-week-copy"><span className="history-week-kicker">WEEK {week.number} · {week.year} {index === currentWeekIndex && <b>THIS WEEK</b>}</span><strong>{week.title}</strong></div>
+        <div className="history-week-counts"><div aria-label={`You ${completion.you ? 'complete' : 'not complete'}, Jordan ${completion.partner ? 'complete' : 'not complete'}`}><span className="mini-dot you-dot" />Y {completion.you ? '✓' : '·'} <span className="mini-dot jordan-dot" />J {completion.partner ? '✓' : '·'}</div><span>{index < currentWeekIndex ? 'PAST WEEK' : index === currentWeekIndex ? 'THIS WEEK' : 'UP NEXT'}</span></div>
         <span className="history-arrow">→</span>
       </button>
     })}</div>
